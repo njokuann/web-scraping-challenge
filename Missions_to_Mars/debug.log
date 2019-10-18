@@ -1,3 +1,6 @@
 [1015/232810.363:ERROR:process_reader_win.cc(151)] SuspendThread: Access is denied. (0x5)
 [1015/232810.365:ERROR:exception_snapshot_win.cc(98)] thread ID 18136 not found in process
 [1015/232810.365:ERROR:scoped_process_suspend.cc(40)] NtResumeProcess: An attempt was made to access an exiting process. (0xc000010a)
+[1018/033137.392:ERROR:process_reader_win.cc(151)] SuspendThread: Access is denied. (0x5)
+[1018/033137.441:ERROR:process_reader_win.cc(123)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights. (0xc0000022)
+[1018/033137.460:ERROR:exception_snapshot_win.cc(98)] thread ID 25308 not found in process
