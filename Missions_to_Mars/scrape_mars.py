@@ -115,13 +115,14 @@ def scrape():
 
     hemisphere_image_urls = []
     for i in range (4):
-        names = soup.find('h3')
+        names = browser.find_by_tag('h3')
+        names[i].click()
         html = browser.html
         soup = BeautifulSoup(html, 'html.parser')
         half_url = soup.find('img', class_= 'wide-image')['src']
         new_title = soup.find('h2', class_='title')
         whole_url = 'https://astrogeology.usgs.gov' + half_url
-        dict = {'title': new_title, 'whole_url': whole_url}
+        dict = {'title': new_title, 'img_url': whole_url}
         hemisphere_image_urls.append(dict)
 
     mars_data["hemisphere_image_urls"] = hemisphere_images_url
