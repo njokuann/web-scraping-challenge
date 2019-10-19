@@ -18,14 +18,14 @@
         <div class="row">
           <div class="col-md-12">
               <h3>Latest Mars News</h3>
-                <h4>{{mars_data.mars_title}}</h4>
-                    <p>{{mars_data.mars_paragraph}}</p>
+                <p>{{mars_data.title}}</p>
+                    <p>{{mars_data.paragraph}}</p>
           </div>
         </div>
         <div class ="row">
-            <div class = "col-md-8">
+            <div class = "col-md-6">
                 <h3>Featured Mars Image</h3>
-                <img src = "{{mars_data.featured_image_url}}" alt ="Mars Image from Nasa">
+                <img src = "{{mars_data.featured_image_url}}" alt ="Mars Image from Nasa", width="450", height="300">
             </div>
 
 
@@ -37,7 +37,7 @@
 
                 <div class="col-md-4"></div>
                     <h5>Mars Facts</h5>
-                    <p>{{mars_data.mars_table_df }}</p>
+                    <table border="1" class="dataframe"> <thead> <tr style="text-align: right;"> <th></th> <th>value</th> </tr> <tr> <th>description</th> <th></th> </tr> </thead> <tbody> <tr> <th>Equatorial Diameter:</th> <td>6,792 km</td> </tr> <tr> <th>Polar Diameter:</th> <td>6,752 km</td> </tr> <tr> <th>Mass:</th> <td>6.39 × 10^23 kg (0.11 Earths)</td> </tr> <tr> <th>Moons:</th> <td>2 (Phobos &amp; Deimos)</td> </tr> <tr> <th>Orbit Distance:</th> <td>227,943,824 km (1.38 AU)</td> </tr> <tr> <th>Orbit Period:</th> <td>687 days (1.9 years)</td> </tr> <tr> <th>Surface Temperature:</th> <td>-87 to -5 °C</td> </tr> <tr> <th>First Record:</th> <td>2nd millennium BC</td> </tr> <tr> <th>Recorded By:</th> <td>Egyptian astronomers</td> </tr> </tbody> </table>
                 </div>
         </div>
         
@@ -46,8 +46,7 @@
                 <h3><center>Mars hemisphere pictures</center></h3>
                 {% for hemisphere in mars_data.mars_hemisphere_image_urls %}
                     <div class = "col-md-12">
-                        <div class = "thumbnail">
-                            <img src = "{{mars_data.hemisphere.img_urls}}" />
+                            <img src = "{{mars_data.hemisphere_image_urls}}"/>
                             </div>
                         </div>
                 {% endfor %}

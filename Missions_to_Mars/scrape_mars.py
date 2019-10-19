@@ -83,7 +83,9 @@ def scrape():
     table_df.columns=["description", "value"]
     table_df.set_index('description', inplace=True)
 
-    mars_data["table_df"] = table_df
+    table = table_df.to_html()
+
+    
 
 
 # Mars hq images
@@ -107,25 +109,26 @@ def scrape():
 
 
 
-    names = soup.find_all("h3")
+    names = soup.find_all('h3')
+    moons = []
 
+    for name in names:
+        name = str(name)
+        name = name[4:-14]
+        moons.append(name)
+        
 
 
 
 
     hemisphere_image_urls = []
-    for i in range (4):
-        names = browser.find_by_tag('h3')
-        names[i].click()
+    for moon in moons:
+        browser.click_link_by_partial_text(moon)
         html = browser.html
         soup = BeautifulSoup(html, 'html.parser')
-        half_url = soup.find('img', class_= 'wide-image')['src']
-        new_title = soup.find('h2', class_='title')
-        whole_url = 'https://astrogeology.usgs.gov' + half_url
-        dict = {'title': new_title, 'img_url': whole_url}
-        hemisphere_image_urls.append(dict)
+        hemisphere_image_urls.append(soup.find('div', class_='downloads').find('a')['href'])
 
-    mars_data["hemisphere_image_urls"] = hemisphere_images_url
+    mars_data["hemisphere_image_urls"] = hemisphere_image_urls
 
     return mars_data
 
